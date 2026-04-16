@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import "./globals.css";
@@ -18,6 +18,11 @@ const fraunces = Fraunces({
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "http://localhost:3000";
+
+export const viewport: Viewport = {
+  themeColor: "#c45c3e",
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -18,7 +18,7 @@ export function SiteHeader() {
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
         scrolled
           ? "border-rb-sand/80 bg-rb-cream/95 backdrop-blur-md"
-          : "border-transparent bg-rb-terracotta/0"
+          : "border-transparent bg-rb-terracotta"
       }`}
     >
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">

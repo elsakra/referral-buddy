@@ -32,9 +32,15 @@
 
 html {
   color-scheme: light;
+  margin: 0;
+  padding: 0;
+  /* Avoid default UA background (#fff) showing as a hairline above the layout */
+  background-color: var(--rb-cream);
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
