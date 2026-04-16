@@ -11,9 +11,9 @@ export default function Home() {
     <>
       <SiteHeader />
 
-      <main id="partners" className="-mt-14 pt-14">
-        {/* Partner hero */}
-        <section className="relative overflow-hidden bg-rb-terracotta pb-20 pt-24 text-white sm:pb-28 sm:pt-28">
+      <main id="partners" className="-mt-14">
+        {/* Partner hero — pt clears sticky header; bg fills behind transparent nav */}
+        <section className="relative overflow-hidden bg-rb-terracotta pb-20 pt-24 text-white sm:pb-28 sm:pt-32">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_20%,rgba(255,255,255,0.12),transparent)]" />
           <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <div className="max-w-xl shrink-0">
