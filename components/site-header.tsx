@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { PARTNER_HERO_RADIAL_OVERLAY } from "@/lib/constants";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -16,19 +15,13 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`relative sticky top-0 z-50 border-b transition-colors duration-300 ${
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
         scrolled
-          ? "border-rb-sand/80 bg-rb-cream/95 backdrop-blur-md"
-          : "border-transparent bg-rb-terracotta"
+          ? "border-b border-rb-sand/80 bg-rb-cream/95 backdrop-blur-md"
+          : "border-0 bg-transparent"
       }`}
     >
-      {!scrolled ? (
-        <div
-          className={`pointer-events-none absolute inset-0 ${PARTNER_HERO_RADIAL_OVERLAY}`}
-          aria-hidden
-        />
-      ) : null}
-      <div className="relative mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
         <Link
           href="/"
           className={`font-display text-lg font-semibold tracking-tight transition-colors ${

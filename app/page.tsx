@@ -3,19 +3,17 @@ import { SiteFooter } from "@/components/site-footer";
 import { FaqSection } from "@/components/faq-section";
 import { PartnerForm } from "@/components/partner-form";
 import { HeroStack } from "@/components/premium/hero-stack";
-import { CAL_DEMO_URL, PARTNER_HERO_RADIAL_OVERLAY } from "@/lib/constants";
+import { CAL_DEMO_URL } from "@/lib/constants";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <SiteHeader />
-
-      <main id="partners" className="-mt-14">
-        {/* Partner hero — pt clears sticky header; bg fills behind transparent nav */}
-        <section className="relative overflow-hidden bg-rb-terracotta pb-20 pt-24 text-white sm:pb-28 sm:pt-32">
-          <div className={`absolute inset-0 ${PARTNER_HERO_RADIAL_OVERLAY}`} />
-          <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+      <main id="partners">
+        {/* Partner hero — header sits inside section so one flat terracotta surface (no gradient) */}
+        <section className="bg-rb-terracotta pb-20 text-white sm:pb-28">
+          <SiteHeader />
+          <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 pt-10 sm:px-6 sm:pt-14 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <div className="max-w-xl shrink-0">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/80">
                 For partners
