@@ -8,7 +8,7 @@ import {
   PARTNER_ROLES,
 } from "@/lib/partner-schema";
 
-const STORAGE_KEY = "referralbuddy_partner_draft_id";
+const STORAGE_KEY = "offermatch_partner_draft_id";
 
 type FieldStep =
   | "email"
@@ -265,7 +265,7 @@ export function TypeformFlow({
           href="/"
           className="mt-10 inline-block text-sm font-semibold text-rb-terracotta underline"
         >
-          Back to ReferralBuddy
+          Back to OfferMatch
         </Link>
       </div>
     );

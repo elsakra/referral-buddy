@@ -8,7 +8,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="font-display text-xl font-semibold text-white">
-              ReferralBuddy
+              OfferMatch
             </p>
             <p className="mt-2 max-w-md text-sm leading-relaxed text-white/70">
               The partner marketplace where brands find referral partners and
@@ -39,7 +39,7 @@ export function SiteFooter() {
           </div>
         </div>
         <p className="mt-12 border-t border-white/10 pt-8 text-xs text-white/50">
-          © {new Date().getFullYear()} ReferralBuddy. All rights reserved.
+          © {new Date().getFullYear()} OfferMatch. All rights reserved.
         </p>
       </div>
     </footer>

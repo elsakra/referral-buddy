@@ -63,7 +63,7 @@ export function PartnerForm() {
           You&apos;re in
         </p>
         <p className="mt-3 text-sm leading-relaxed text-rb-text-muted">
-          We&apos;ve added you to the ReferralBuddy partner network.
+          We&apos;ve added you to the OfferMatch partner network.
           Here&apos;s what happens next:
         </p>
         <ol className="mt-6 list-decimal space-y-3 pl-5 text-sm text-rb-chocolate">

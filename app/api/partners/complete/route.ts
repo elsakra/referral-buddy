@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { partnerCompleteSchema } from "@/lib/partner-schema";
 import { createServiceClient } from "@/lib/supabase/admin";
+import { notifySignupSlack } from "@/lib/slack-signup";
 
 export const runtime = "nodejs";
 
@@ -99,6 +100,18 @@ export async function POST(request: Request) {
         { status: 500 },
       );
     }
+
+    void notifySignupSlack({
+      channel: "join",
+      id,
+      email: String(d.email),
+      fullName: d.full_name,
+      role: d.role,
+      region: d.region,
+      activeClientsBand: d.active_clients_band,
+      source: d.source ?? "cold_email",
+      profileUrl: d.profile_url ?? null,
+    });
 
     return NextResponse.json({ ok: true });
   } catch (e) {

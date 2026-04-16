@@ -6,7 +6,7 @@ import { createServiceClient } from "@/lib/supabase/admin";
 import { AdminLogoutButton } from "@/components/admin-logout-button";
 
 export const metadata = {
-  title: "Partner signups · ReferralBuddy",
+  title: "Partner signups · OfferMatch",
   robots: { index: false, follow: false },
 };
 
@@ -57,7 +57,7 @@ export default async function AdminDashboardPage({
             <h1 className="text-lg font-semibold text-zinc-900">
               Partner signups
             </h1>
-            <p className="text-sm text-zinc-500">ReferralBuddy admin</p>
+            <p className="text-sm text-zinc-500">OfferMatch admin</p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             {showDrafts ? (

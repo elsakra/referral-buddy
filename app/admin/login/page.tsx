@@ -5,7 +5,7 @@ import { ADMIN_COOKIE, verifyAdminSession } from "@/lib/admin-session";
 import { AdminLoginForm } from "@/components/admin-login-form";
 
 export const metadata = {
-  title: "Admin login · ReferralBuddy",
+  title: "Admin login · OfferMatch",
   robots: { index: false, follow: false },
 };
 
@@ -40,7 +40,7 @@ export default async function AdminLoginPage() {
   return (
     <div className="mx-auto flex min-h-[60vh] max-w-sm flex-col justify-center px-4 py-16">
       <h1 className="text-xl font-semibold tracking-tight text-zinc-900">
-        ReferralBuddy admin
+        OfferMatch admin
       </h1>
       <p className="mt-1 text-sm text-zinc-600">Sign in to view partner signups.</p>
       <AdminLoginForm />

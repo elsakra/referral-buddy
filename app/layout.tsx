@@ -21,23 +21,23 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ReferralBuddy — Partner marketplace for brands and professionals",
-    template: "%s · ReferralBuddy",
+    default: "OfferMatch — Partner marketplace for brands and professionals",
+    template: "%s · OfferMatch",
   },
   description:
     "Brands find referral partners. Partners earn by recommending products they believe in. Join free; pay only for results.",
   openGraph: {
-    title: "ReferralBuddy — Partner marketplace",
+    title: "OfferMatch — Partner marketplace",
     description:
       "Brands find referral partners. Partners earn by recommending products to their clients.",
     url: siteUrl,
-    siteName: "ReferralBuddy",
+    siteName: "OfferMatch",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ReferralBuddy",
+    title: "OfferMatch",
     description:
       "The partner marketplace where brands find referral partners and partners earn by recommending products.",
   },

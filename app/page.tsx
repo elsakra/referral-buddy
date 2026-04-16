@@ -181,7 +181,7 @@ export default function Home() {
               Warm introductions—not cold outbound.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
-              ReferralBuddy connects you with professionals who already have your
+              OfferMatch connects you with professionals who already have your
               buyers’ trust. Pay when referrals become sales.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
@@ -208,7 +208,7 @@ export default function Home() {
 
         <section className="border-t border-rb-chocolate-mid bg-rb-chocolate-mid text-white">
           <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-            <h3 className="font-display text-2xl font-semibold">Why brands use ReferralBuddy</h3>
+            <h3 className="font-display text-2xl font-semibold">Why brands use OfferMatch</h3>
             <ul className="mt-12 grid gap-10 md:grid-cols-3">
               {[
                 {
@@ -278,7 +278,7 @@ export default function Home() {
             </ol>
             <div className="mt-16 text-center">
               <p className="text-lg text-white/80">
-                See whether ReferralBuddy fits your go-to-market.
+                See whether OfferMatch fits your go-to-market.
               </p>
               <a
                 href={CAL_DEMO_URL}

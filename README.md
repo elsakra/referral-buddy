@@ -1,4 +1,4 @@
-# ReferralBuddy
+# OfferMatch
 
 Marketing site and partner intake API: **Next.js** (App Router) on **Vercel**, **Supabase** for storing partner signups, optional **admin** UI at `/admin`.
 
@@ -19,7 +19,8 @@ Marketing site and partner intake API: **Next.js** (App Router) on **Vercel**, *
    - `SUPABASE_URL` — Supabase project URL  
    - `SUPABASE_SERVICE_ROLE_KEY` — **service role** key (server-only; never expose to the browser)  
    - `ADMIN_SECRET` — long random string to protect `/admin`  
-   - `NEXT_PUBLIC_SITE_URL` — e.g. `http://localhost:3000` (optional; used for metadata and sitemap)
+   - `NEXT_PUBLIC_SITE_URL` — e.g. `http://localhost:3000` or `https://offermatch.io` (optional; used for metadata and sitemap)  
+   - `SLACK_WEBHOOK_URL` — Slack **Incoming Webhook** URL (`https://hooks.slack.com/...`); optional. When set, each **completed** signup (landing form or `/join` finish) posts a short notification.
 
 3. In the [Supabase SQL Editor](https://supabase.com/dashboard), run migrations **in order**:
 
@@ -56,7 +57,7 @@ Do not index admin routes in production search engines; `app/robots.ts` disallow
 ## Deploy (Vercel)
 
 - **GitHub:** [github.com/elsakra/referral-buddy](https://github.com/elsakra/referral-buddy) (default branch `main`).  
-- **Production URL:** [referral-buddy.vercel.app](https://referral-buddy.vercel.app)  
+- **Production URL:** [offermatch.io](https://offermatch.io)  
 - **Dashboard:** [vercel.com/elsakras-projects/referral-buddy](https://vercel.com/elsakras-projects/referral-buddy) — Git is connected so pushes to `main` trigger production deploys.
 
 ### Environment variables on Vercel
@@ -65,10 +66,11 @@ These are set in the project (replace Supabase placeholders with real values fro
 
 | Variable | Production | Development (Vercel) | Notes |
 |----------|------------|----------------------|--------|
-| `NEXT_PUBLIC_SITE_URL` | Yes | Yes | e.g. `https://referral-buddy.vercel.app` |
+| `NEXT_PUBLIC_SITE_URL` | Yes | Yes | e.g. `https://offermatch.io` |
 | `SUPABASE_URL` | Yes | Yes | Replace `YOUR_PROJECT_REF` with your project ref |
 | `SUPABASE_SERVICE_ROLE_KEY` | Yes | — | Sensitive keys cannot target **Development** on Vercel; use `.env.local` locally |
 | `ADMIN_SECRET` | Yes | — | Same as above; read the value in the Vercel UI under Environment Variables |
+| `SLACK_WEBHOOK_URL` | Yes | — | Incoming webhook for signup notifications (optional) |
 
 **Preview deployments:** The CLI often requires a specific Git branch for Preview envs. Easiest fix: in the Vercel project → **Settings → Environment Variables**, add the same variables for **Preview** (e.g. “All preview branches”) after you replace placeholders.
 
@@ -76,7 +78,7 @@ Use Node 20+ (see `package.json` `engines`).
 
 ## Security
 
-- Never commit `.env.local` or service role keys.  
+- Never commit `.env.local`, service role keys, or Slack webhook URLs.  
 - If API keys were ever pasted into chat, email, or tickets, **rotate them** in Supabase, Vercel, and GitHub immediately.
 
 ## License

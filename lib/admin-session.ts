@@ -1,6 +1,6 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 
-const SALT = "referralbuddy-admin-session-v1";
+const SALT = "offermatch-admin-session-v1";
 
 export function getAdminSessionToken(secret: string): string {
   return createHmac("sha256", secret).update(SALT).digest("hex");
@@ -22,4 +22,4 @@ export function verifyAdminSession(
   }
 }
 
-export const ADMIN_COOKIE = "referralbuddy_admin";
+export const ADMIN_COOKIE = "offermatch_admin";

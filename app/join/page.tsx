@@ -5,7 +5,7 @@ import { TypeformFlow } from "@/components/join/typeform-flow";
 export const metadata = {
   title: "Apply in 60 seconds",
   description:
-    "Join the ReferralBuddy partner network—one question at a time. No fees.",
+    "Join the OfferMatch partner network—one question at a time. No fees.",
   robots: { index: false, follow: false },
 };
 
@@ -28,7 +28,7 @@ export default async function JoinPage({
             href="/"
             className="font-display text-lg font-semibold text-rb-chocolate"
           >
-            ReferralBuddy
+            OfferMatch
           </Link>
           <Link
             href="/"

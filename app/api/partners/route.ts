@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { partnerCompleteSchema } from "@/lib/partner-schema";
 import { createServiceClient } from "@/lib/supabase/admin";
+import { notifySignupSlack } from "@/lib/slack-signup";
 
 export const runtime = "nodejs";
 
@@ -37,7 +38,11 @@ export async function POST(request: Request) {
 
   try {
     const supabase = createServiceClient();
-    const { error } = await supabase.from("partner_signups").insert(row);
+    const { data: inserted, error } = await supabase
+      .from("partner_signups")
+      .insert(row)
+      .select("id")
+      .single();
 
     if (error) {
       if (error.code === "23505") {
@@ -54,6 +59,20 @@ export async function POST(request: Request) {
         { error: "Could not save your signup. Please try again later." },
         { status: 500 },
       );
+    }
+
+    if (inserted?.id) {
+      void notifySignupSlack({
+        channel: "landing",
+        id: inserted.id,
+        email: row.email,
+        fullName: row.full_name,
+        role: row.role,
+        region: row.region,
+        activeClientsBand: row.active_clients_band,
+        source: row.source,
+        profileUrl: row.profile_url,
+      });
     }
   } catch (e) {
     console.error("partner_signups:", e);

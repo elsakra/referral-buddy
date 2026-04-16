@@ -28,7 +28,7 @@ export function SiteHeader() {
             scrolled ? "text-rb-chocolate" : "text-white"
           }`}
         >
-          ReferralBuddy
+          OfferMatch
         </Link>
         <nav
           className={`flex items-center gap-4 text-sm font-medium sm:gap-8 ${
