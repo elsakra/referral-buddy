@@ -49,10 +49,24 @@ Do not index admin routes in production search engines; `app/robots.ts` disallow
 
 ## Deploy (Vercel)
 
-1. Push this repo to GitHub and import the project in Vercel.  
-2. Set the same env vars as in `.env.example` (use **Production** and **Preview** as needed).  
-3. Use Node 20+ (see `package.json` `engines`).  
-4. After deploy, set `NEXT_PUBLIC_SITE_URL` to your production URL so Open Graph and `sitemap.xml` are correct.
+- **GitHub:** [github.com/elsakra/referral-buddy](https://github.com/elsakra/referral-buddy) (default branch `main`).  
+- **Production URL:** [referral-buddy.vercel.app](https://referral-buddy.vercel.app)  
+- **Dashboard:** [vercel.com/elsakras-projects/referral-buddy](https://vercel.com/elsakras-projects/referral-buddy) — Git is connected so pushes to `main` trigger production deploys.
+
+### Environment variables on Vercel
+
+These are set in the project (replace Supabase placeholders with real values from the Supabase dashboard):
+
+| Variable | Production | Development (Vercel) | Notes |
+|----------|------------|----------------------|--------|
+| `NEXT_PUBLIC_SITE_URL` | Yes | Yes | e.g. `https://referral-buddy.vercel.app` |
+| `SUPABASE_URL` | Yes | Yes | Replace `YOUR_PROJECT_REF` with your project ref |
+| `SUPABASE_SERVICE_ROLE_KEY` | Yes | — | Sensitive keys cannot target **Development** on Vercel; use `.env.local` locally |
+| `ADMIN_SECRET` | Yes | — | Same as above; read the value in the Vercel UI under Environment Variables |
+
+**Preview deployments:** The CLI often requires a specific Git branch for Preview envs. Easiest fix: in the Vercel project → **Settings → Environment Variables**, add the same variables for **Preview** (e.g. “All preview branches”) after you replace placeholders.
+
+Use Node 20+ (see `package.json` `engines`).
 
 ## Security
 
