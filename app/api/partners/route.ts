@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { partnerSignupSchema } from "@/lib/partner-schema";
+import { partnerCompleteSchema } from "@/lib/partner-schema";
 import { createServiceClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const parsed = partnerSignupSchema.safeParse(body);
+  const parsed = partnerCompleteSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json(
       { error: "Validation failed", details: parsed.error.flatten() },
@@ -28,9 +28,11 @@ export async function POST(request: Request) {
     role: data.role,
     active_clients_band: data.active_clients_band,
     region: data.region,
-    products_note: data.products_note || null,
-    extra_note: data.extra_note || null,
+    products_note: data.products_note ?? null,
+    extra_note: data.extra_note ?? null,
+    profile_url: data.profile_url ?? null,
     source: data.source?.trim() || "landing",
+    is_complete: true,
   };
 
   try {

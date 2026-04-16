@@ -21,11 +21,10 @@ Marketing site and partner intake API: **Next.js** (App Router) on **Vercel**, *
    - `ADMIN_SECRET` — long random string to protect `/admin`  
    - `NEXT_PUBLIC_SITE_URL` — e.g. `http://localhost:3000` (optional; used for metadata and sitemap)
 
-3. In the [Supabase SQL Editor](https://supabase.com/dashboard), run the migration in:
+3. In the [Supabase SQL Editor](https://supabase.com/dashboard), run migrations **in order**:
 
-   `supabase/migrations/001_partner_signups.sql`
-
-   This creates `partner_signups`, a unique index on `lower(email)`, and enables RLS with **no** public policies (inserts go through this app’s API using the service role only).
+   - `supabase/migrations/001_partner_signups.sql` — base table and RLS (no public policies; server-side service role only).  
+   - `supabase/migrations/002_partner_signups_drafts.sql` — `is_complete`, nullable columns for in-progress signups, optional `profile_url`, partial unique indexes for completed vs draft emails.
 
 4. Install and run:
 
@@ -34,16 +33,23 @@ Marketing site and partner intake API: **Next.js** (App Router) on **Vercel**, *
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000). Submit the partner form and confirm a row appears in **Table Editor → `partner_signups`**, or visit `/admin` after setting `ADMIN_SECRET`.
+5. Open [http://localhost:3000](http://localhost:3000). Submit the partner form or visit [`/join`](http://localhost:3000/join) for the step-by-step flow. Confirm rows in **Table Editor → `partner_signups`**, or visit `/admin` after setting `ADMIN_SECRET`.
+
+## Pages
+
+- **`/`** — Marketing site + embedded partner form (single submit).  
+- **`/join`** — High-conversion, one-question-at-a-time flow with **autosave** after each step (`noindex`). Use query params `?email=` and `?first_name=` to prefill from outbound email. Resume via `?d=<draft_uuid>` or session storage.
 
 ## API
 
-- `POST /api/partners` — JSON body validated with Zod; inserts into `partner_signups`. Duplicate emails return `409`.
+- `POST /api/partners` — Full signup in one request; sets `is_complete: true`. Duplicate **completed** emails return `409`.  
+- `POST /api/partners/draft` — Body `{ id?: uuid, patch: { ... } }` merges fields for an in-progress row (`is_complete: false`). Requires `email` on first create.  
+- `POST /api/partners/complete` — Body `{ id: uuid }` validates all required fields and sets `is_complete: true`.
 
 ## Admin
 
 - `/admin/login` — password is `ADMIN_SECRET`  
-- `/admin` — table of recent signups (requires login)
+- `/admin` — table of signups (defaults to **completed** only). Append `?drafts=1` to include in-progress applications.
 
 Do not index admin routes in production search engines; `app/robots.ts` disallows `/admin`.
 

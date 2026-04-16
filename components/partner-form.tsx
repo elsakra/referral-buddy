@@ -55,22 +55,24 @@ export function PartnerForm() {
   if (status === "success") {
     return (
       <div
-        className="rounded-2xl border border-emerald-200 bg-emerald-50/80 px-6 py-8 shadow-sm"
+        className="rb-card border-rb-terracotta/25 bg-white px-8 py-10"
         role="status"
         aria-live="polite"
       >
-        <p className="text-lg font-semibold text-emerald-900">You&apos;re in</p>
-        <p className="mt-2 text-sm text-emerald-800/90">
+        <p className="font-display text-2xl font-semibold text-rb-chocolate">
+          You&apos;re in
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-rb-text-muted">
           We&apos;ve added you to the ReferralBuddy partner network.
           Here&apos;s what happens next:
         </p>
-        <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-emerald-900/90">
+        <ol className="mt-6 list-decimal space-y-3 pl-5 text-sm text-rb-chocolate">
           <li>We review your profile (usually within 48 hours)</li>
           <li>You start receiving partnership offers to your email</li>
           <li>Accept the ones you like, ignore the rest</li>
           <li>Refer clients and earn commissions</li>
         </ol>
-        <p className="mt-4 text-sm font-medium text-emerald-900">
+        <p className="mt-6 text-sm font-medium text-rb-chocolate">
           No fees. No commitments. You&apos;re in control.
         </p>
         <button
@@ -79,7 +81,7 @@ export function PartnerForm() {
             setStatus("idle");
             setMessage(null);
           }}
-          className="mt-6 text-sm font-medium text-emerald-800 underline decoration-emerald-800/40 hover:decoration-emerald-800"
+          className="mt-8 text-sm font-semibold text-rb-terracotta underline decoration-rb-terracotta/40 hover:decoration-rb-terracotta"
         >
           Submit another response
         </button>
@@ -88,18 +90,10 @@ export function PartnerForm() {
   }
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="space-y-5"
-      noValidate={false}
-      id="partner-form-inner"
-    >
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={onSubmit} className="space-y-6" id="partner-form-inner">
+      <div className="grid gap-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
-          <label
-            htmlFor="full_name"
-            className="block text-sm font-medium text-zinc-700"
-          >
+          <label htmlFor="full_name" className="rb-label">
             Full name <span className="text-red-600">*</span>
           </label>
           <input
@@ -108,14 +102,11 @@ export function PartnerForm() {
             type="text"
             required
             autoComplete="name"
-            className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-zinc-900 shadow-sm outline-none ring-emerald-500/0 transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            className="rb-input mt-2"
           />
         </div>
         <div className="sm:col-span-2">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-zinc-700"
-          >
+          <label htmlFor="email" className="rb-label">
             Email address <span className="text-red-600">*</span>
           </label>
           <input
@@ -125,14 +116,11 @@ export function PartnerForm() {
             required
             autoComplete="email"
             placeholder="Where offers arrive"
-            className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-zinc-900 shadow-sm outline-none ring-emerald-500/0 transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            className="rb-input mt-2"
           />
         </div>
         <div>
-          <label
-            htmlFor="role"
-            className="block text-sm font-medium text-zinc-700"
-          >
+          <label htmlFor="role" className="rb-label">
             What do you do? <span className="text-red-600">*</span>
           </label>
           <select
@@ -140,7 +128,7 @@ export function PartnerForm() {
             name="role"
             required
             defaultValue=""
-            className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-zinc-900 shadow-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            className="rb-input mt-2"
           >
             <option value="" disabled>
               Select…
@@ -153,10 +141,7 @@ export function PartnerForm() {
           </select>
         </div>
         <div>
-          <label
-            htmlFor="active_clients_band"
-            className="block text-sm font-medium text-zinc-700"
-          >
+          <label htmlFor="active_clients_band" className="rb-label">
             How many active clients? <span className="text-red-600">*</span>
           </label>
           <select
@@ -164,7 +149,7 @@ export function PartnerForm() {
             name="active_clients_band"
             required
             defaultValue=""
-            className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-zinc-900 shadow-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            className="rb-input mt-2"
           >
             <option value="" disabled>
               Select…
@@ -177,10 +162,7 @@ export function PartnerForm() {
           </select>
         </div>
         <div className="sm:col-span-2">
-          <label
-            htmlFor="region"
-            className="block text-sm font-medium text-zinc-700"
-          >
+          <label htmlFor="region" className="rb-label">
             City/region you serve <span className="text-red-600">*</span>
           </label>
           <input
@@ -189,14 +171,11 @@ export function PartnerForm() {
             type="text"
             required
             autoComplete="address-level2"
-            className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-zinc-900 shadow-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            className="rb-input mt-2"
           />
         </div>
         <div className="sm:col-span-2">
-          <label
-            htmlFor="products_note"
-            className="block text-sm font-medium text-zinc-700"
-          >
+          <label htmlFor="products_note" className="rb-label">
             What products would you recommend?
           </label>
           <textarea
@@ -204,27 +183,24 @@ export function PartnerForm() {
             name="products_note"
             rows={3}
             placeholder="e.g. software tools, supplements, insurance…"
-            className="mt-1.5 w-full resize-y rounded-lg border border-zinc-200 bg-white px-3 py-2 text-zinc-900 shadow-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            className="rb-input mt-2 min-h-[6rem] resize-y"
           />
         </div>
         <div className="sm:col-span-2">
-          <label
-            htmlFor="extra_note"
-            className="block text-sm font-medium text-zinc-700"
-          >
+          <label htmlFor="extra_note" className="rb-label">
             Anything else?
           </label>
           <textarea
             id="extra_note"
             name="extra_note"
             rows={2}
-            className="mt-1.5 w-full resize-y rounded-lg border border-zinc-200 bg-white px-3 py-2 text-zinc-900 shadow-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            className="rb-input mt-2 min-h-[4rem] resize-y"
           />
         </div>
       </div>
 
       {status === "error" && message ? (
-        <p className="text-sm text-red-600" role="alert">
+        <p className="text-sm text-red-700" role="alert">
           {message}
         </p>
       ) : null}
@@ -232,7 +208,7 @@ export function PartnerForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full rounded-xl bg-emerald-600 px-5 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="rb-btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {status === "loading" ? "Submitting…" : "Join the Partner Network →"}
       </button>

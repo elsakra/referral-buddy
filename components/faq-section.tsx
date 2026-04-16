@@ -23,32 +23,40 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section className="border-t border-zinc-100 bg-white" aria-labelledby="faq-heading">
-      <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+    <section
+      className="border-t border-rb-sand/80 bg-rb-cream"
+      aria-labelledby="faq-heading"
+    >
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rb-terracotta">
+          Questions
+        </p>
         <h2
           id="faq-heading"
-          className="text-2xl font-semibold tracking-tight text-zinc-900"
+          className="font-display mt-3 text-3xl font-semibold tracking-tight text-rb-chocolate sm:text-4xl"
         >
           FAQ
         </h2>
-        <div className="mt-8 divide-y divide-zinc-100 rounded-2xl border border-zinc-100 bg-zinc-50/50">
+        <div className="mt-10 divide-y divide-rb-sand/60 rounded-2xl border border-rb-sand/80 bg-white shadow-sm">
           {faqs.map((item) => (
             <details
               key={item.q}
-              className="group px-4 py-4 first:rounded-t-2xl last:rounded-b-2xl sm:px-6"
+              className="group px-5 py-5 first:rounded-t-2xl last:rounded-b-2xl sm:px-8"
             >
-              <summary className="cursor-pointer list-none font-medium text-zinc-900 marker:content-none [&::-webkit-details-marker]:hidden">
-                <span className="flex items-center justify-between gap-2">
+              <summary className="cursor-pointer list-none font-medium text-rb-chocolate marker:content-none [&::-webkit-details-marker]:hidden">
+                <span className="flex items-center justify-between gap-3">
                   {item.q}
                   <span
-                    className="text-zinc-400 transition group-open:rotate-180"
+                    className="text-rb-text-muted transition group-open:rotate-180"
                     aria-hidden
                   >
                     ▼
                   </span>
                 </span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-600">{item.a}</p>
+              <p className="mt-3 text-sm leading-relaxed text-rb-text-muted">
+                {item.a}
+              </p>
             </details>
           ))}
         </div>

@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --rb-cream: #faf6f1;
+  --rb-cream-deep: #f0e8dd;
+  --rb-terracotta: #c45c3e;
+  --rb-terracotta-dark: #a34a30;
+  --rb-chocolate: #2c1810;
+  --rb-chocolate-mid: #3d2419;
+  --rb-text: #2c1810;
+  --rb-text-muted: #6b5346;
+  --rb-sand: #e8dfd4;
+  --background: var(--rb-cream);
+  --foreground: var(--rb-text);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --color-rb-cream: var(--rb-cream);
+  --color-rb-cream-deep: var(--rb-cream-deep);
+  --color-rb-terracotta: var(--rb-terracotta);
+  --color-rb-terracotta-dark: var(--rb-terracotta-dark);
+  --color-rb-chocolate: var(--rb-chocolate);
+  --color-rb-chocolate-mid: var(--rb-chocolate-mid);
+  --color-rb-text: var(--rb-text);
+  --color-rb-text-muted: var(--rb-text-muted);
+  --color-rb-sand: var(--rb-sand);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+/* Form controls — premium focus */
+.rb-input {
+  @apply w-full rounded-xl border border-rb-sand bg-white px-4 py-3.5 text-rb-text shadow-sm outline-none transition;
+  @apply placeholder:text-rb-text-muted/70;
+  @apply focus:border-rb-terracotta focus:ring-2 focus:ring-rb-terracotta/20;
+}
+
+.rb-label {
+  @apply block text-sm font-medium text-rb-text;
+}
+
+.rb-btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-rb-terracotta px-6 py-3.5 text-base font-semibold text-white shadow-md transition;
+  @apply hover:bg-rb-terracotta-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rb-terracotta;
+}
+
+.rb-btn-secondary {
+  @apply inline-flex items-center justify-center rounded-xl border-2 border-white/80 bg-white/10 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition;
+  @apply hover:bg-white/20;
+}
+
+.rb-card {
+  @apply rounded-2xl border border-rb-sand/80 bg-white shadow-[0_2px_24px_-4px_rgba(44,24,16,0.08)];
 }

@@ -2,83 +2,91 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FaqSection } from "@/components/faq-section";
 import { PartnerForm } from "@/components/partner-form";
+import { HeroStack } from "@/components/premium/hero-stack";
 import { CAL_DEMO_URL } from "@/lib/constants";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       <SiteHeader />
 
-      <main id="partners">
+      <main id="partners" className="-mt-14 pt-14">
         {/* Partner hero */}
-        <section className="relative overflow-hidden border-b border-zinc-100 bg-gradient-to-b from-emerald-50/40 to-white">
-          <div className="mx-auto max-w-5xl px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20">
-            <p className="text-sm font-medium uppercase tracking-wide text-emerald-800/80">
-              For partners
-            </p>
-            <h1 className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl sm:leading-[1.1]">
-              Earn commissions by recommending products to your existing
-              clients.
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-600">
-              Brands are looking for professionals like you to be their referral
-              partners. Sign up in 60 seconds. Get partnership offers to your
-              inbox. You only earn.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href="#partner-form"
-                className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-emerald-700"
-              >
-                Join the Partner Network →
-              </a>
-              <p className="text-sm text-zinc-500">
-                No fees. No commitments. Takes 60 seconds.
+        <section className="relative overflow-hidden bg-rb-terracotta pb-20 pt-24 text-white sm:pb-28 sm:pt-28">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_20%,rgba(255,255,255,0.12),transparent)]" />
+          <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+            <div className="max-w-xl shrink-0">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/80">
+                For partners
               </p>
+              <h1 className="font-display mt-4 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.25rem]">
+                Earn commissions recommending products your clients already need.
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed text-white/85">
+                Brands want professionals with trusted relationships—not cold ads.
+                Join in one minute. Partnership offers arrive by email. You only
+                earn.
+              </p>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <a href="#partner-form" className="rb-btn-secondary sm:min-w-[220px]">
+                  Join the Partner Network
+                </a>
+                <p className="text-sm text-white/70">
+                  No fees · No commitments · ~60 seconds
+                </p>
+              </div>
             </div>
+            <HeroStack />
           </div>
         </section>
 
         {/* How it works — partners */}
-        <section className="border-b border-zinc-100 bg-white" aria-labelledby="how-partners">
-          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+        <section
+          className="border-t border-rb-sand/80 bg-rb-cream"
+          aria-labelledby="how-partners"
+        >
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rb-terracotta">
+              The workflow
+            </p>
             <h2
               id="how-partners"
-              className="text-2xl font-semibold tracking-tight text-zinc-900"
+              className="font-display mt-3 text-3xl font-semibold tracking-tight text-rb-chocolate sm:text-4xl"
             >
               How it works
             </h2>
-            <ol className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <ol className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
                   step: "1",
                   title: "Sign up in 60 seconds",
-                  body: "Fill out a short form about what you do, where you’re based, and how many clients you have.",
+                  body: "Tell us what you do, where you’re based, and how many clients you serve.",
                 },
                 {
                   step: "2",
                   title: "Receive partnership offers",
-                  body: "When a brand matches your profile, we send the opportunity to your inbox with product details, commission rate, and terms.",
+                  body: "When a brand matches your profile, we email the product, commission, and terms.",
                 },
                 {
                   step: "3",
                   title: "Accept or pass",
-                  body: "Like the offer? Accept with one click. Not interested? Ignore it. No pressure.",
+                  body: "One click to accept. Not interested? Ignore it. No calls required.",
                 },
                 {
                   step: "4",
                   title: "Refer and earn",
-                  body: "Recommend the product to your clients. When they buy, you earn. We handle tracking and payments.",
+                  body: "Recommend to clients. When they buy, you earn—we handle tracking.",
                 },
               ].map((item) => (
                 <li key={item.step}>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-800">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm font-bold text-rb-terracotta shadow-sm ring-1 ring-rb-sand">
                     {item.step}
                   </span>
-                  <h3 className="mt-4 font-semibold text-zinc-900">
+                  <h3 className="mt-5 font-display text-lg font-semibold text-rb-chocolate">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+                  <p className="mt-2 text-sm leading-relaxed text-rb-text-muted">
                     {item.body}
                   </p>
                 </li>
@@ -88,27 +96,30 @@ export default function Home() {
         </section>
 
         {/* Who it's for */}
-        <section className="bg-zinc-50/80" aria-labelledby="who-for">
-          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+        <section className="bg-rb-cream-deep/50" aria-labelledby="who-for">
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
             <h2
               id="who-for"
-              className="text-2xl font-semibold tracking-tight text-zinc-900"
+              className="font-display text-3xl font-semibold tracking-tight text-rb-chocolate sm:text-4xl"
             >
-              Who is this for
+              Who this is for
             </h2>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2">
               {[
                 "Personal trainers and fitness coaches with active clients",
                 "Independent insurance agents recommending products",
                 "Marketing freelancers or agencies placing tools for clients",
                 "Accountants, bookkeepers, financial advisors",
                 "Real estate agents, web designers, beauty professionals",
-                "Anyone with clients who trust their recommendations",
+                "Anyone whose clients trust their recommendations",
               ].map((line) => (
                 <li
                   key={line}
-                  className="flex gap-2 text-sm text-zinc-700 before:content-['✓'] before:font-medium before:text-emerald-600"
+                  className="rb-card flex gap-3 px-5 py-4 text-sm text-rb-chocolate"
                 >
+                  <span className="mt-0.5 text-rb-terracotta" aria-hidden>
+                    ✓
+                  </span>
                   {line}
                 </li>
               ))}
@@ -121,36 +132,38 @@ export default function Home() {
         {/* Partner form + bottom CTA */}
         <section
           id="partner-form"
-          className="border-t border-zinc-100 bg-white scroll-mt-20"
+          className="scroll-mt-24 border-t border-rb-sand/80 bg-white"
           aria-labelledby="form-heading"
         >
-          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
             <div className="mx-auto max-w-xl">
               <h2
                 id="form-heading"
-                className="text-2xl font-semibold tracking-tight text-zinc-900"
+                className="font-display text-3xl font-semibold tracking-tight text-rb-chocolate"
               >
-                Join the ReferralBuddy Partner Network
+                Join the partner network
               </h2>
-              <p className="mt-2 text-zinc-600">
-                Get paid to recommend products and services to your existing
-                clients. No fees, no commitments. Fill this out and start
-                receiving partnership offers.
+              <p className="mt-3 text-rb-text-muted">
+                Get paid to recommend products to your existing clients. No fees,
+                no commitments—just offers that fit your practice.
               </p>
               <div className="mt-10">
                 <PartnerForm />
               </div>
             </div>
             <div className="mx-auto mt-16 max-w-xl text-center">
-              <p className="text-lg font-medium text-zinc-900">
-                Ready to start earning?
+              <p className="font-display text-xl font-semibold text-rb-chocolate">
+                Prefer a guided flow?
               </p>
-              <a
-                href="#partner-form"
-                className="mt-4 inline-flex rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white hover:bg-emerald-700"
+              <p className="mt-2 text-sm text-rb-text-muted">
+                Use our short step-by-step signup—perfect from email or DM.
+              </p>
+              <Link
+                href="/join"
+                className="rb-btn-primary mt-6 inline-flex"
               >
-                Join the Partner Network →
-              </a>
+                Open the quick apply page
+              </Link>
             </div>
           </div>
         </section>
@@ -158,64 +171,64 @@ export default function Home() {
         {/* Brands */}
         <section
           id="brands"
-          className="scroll-mt-20 border-t border-zinc-200 bg-zinc-900 text-zinc-100"
+          className="scroll-mt-20 border-t border-rb-chocolate-mid bg-rb-chocolate text-white"
         >
-          <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-            <p className="text-sm font-medium uppercase tracking-wide text-emerald-400/90">
+          <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
               For brands
             </p>
-            <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-              Get hundreds of professionals referring your product to their
-              clients.
+            <h2 className="font-display mt-4 max-w-2xl text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.75rem]">
+              Warm introductions—not cold outbound.
             </h2>
-            <p className="mt-5 max-w-2xl text-lg text-zinc-300">
-              ReferralBuddy connects your brand with trusted professionals who
-              recommend products to their existing clients. You only pay for
-              results.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
+              ReferralBuddy connects you with professionals who already have your
+              buyers’ trust. Pay when referrals become sales.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
               <a
                 href={CAL_DEMO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-6 py-3 text-base font-semibold text-zinc-950 shadow-sm transition hover:bg-emerald-400"
+                className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-rb-chocolate shadow-lg transition hover:bg-rb-cream"
               >
-                Book a 15-Minute Demo →
+                Book a 15-minute demo
               </a>
-              <span className="text-sm text-zinc-400">
+              <span className="text-sm text-white/55">
                 <a
                   href={CAL_DEMO_URL}
-                  className="text-emerald-400 underline decoration-emerald-400/40 hover:decoration-emerald-400"
+                  className="font-medium text-white underline decoration-white/30 hover:decoration-white"
                 >
                   cal.com/elsakr
                 </a>{" "}
-                · Free to join. Pay only for results.
+                · Free to join · Pay for results only
               </span>
             </div>
           </div>
         </section>
 
-        <section className="border-t border-zinc-800 bg-zinc-900">
-          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-            <h3 className="text-xl font-semibold text-white">Value props</h3>
-            <ul className="mt-8 grid gap-8 md:grid-cols-3">
+        <section className="border-t border-rb-chocolate-mid bg-rb-chocolate-mid text-white">
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+            <h3 className="font-display text-2xl font-semibold">Why brands use ReferralBuddy</h3>
+            <ul className="mt-12 grid gap-10 md:grid-cols-3">
               {[
                 {
-                  title: "Pre-vetted partners, not cold leads",
-                  body: "Every partner has opted in, listed their client count, and specified what they’re open to recommending.",
+                  title: "Pre-vetted partners",
+                  body: "Professionals opted in with client ranges and what they’re open to recommending.",
                 },
                 {
                   title: "Pay only for results",
-                  body: "No listing fees. No subscription. You set your commission rate. Pay only when a referral becomes a sale.",
+                  body: "No listing fees or subscriptions. You set commissions and pay on closed sales.",
                 },
                 {
-                  title: "Launch in days, not months",
-                  body: "No need to build your own partner program. Post an offer, get matched, start generating referral revenue.",
+                  title: "Launch in days",
+                  body: "Skip building a partner program from scratch—post an offer, get matched, earn.",
                 },
               ].map((item) => (
-                <li key={item.title}>
-                  <h4 className="font-semibold text-emerald-300">{item.title}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                <li key={item.title} className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+                  <h4 className="font-display text-lg font-semibold text-white">
+                    {item.title}
+                  </h4>
+                  <p className="mt-3 text-sm leading-relaxed text-white/65">
                     {item.body}
                   </p>
                 </li>
@@ -224,54 +237,56 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="border-t border-zinc-800 bg-zinc-950">
-          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-            <h3 className="text-xl font-semibold text-white">
+        <section className="border-t border-black/20 bg-[#1a0f0c] text-white">
+          <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+            <h3 className="font-display text-2xl font-semibold">
               How it works for brands
             </h3>
-            <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <ol className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
                   step: "1",
                   title: "Book a demo",
-                  body: "15-minute call. We learn about your product and ideal partner profile.",
+                  body: "15 minutes—we learn your product and ideal partner profile.",
                 },
                 {
                   step: "2",
-                  title: "We create your offer",
-                  body: "Partnership offer with your commission structure and partner criteria.",
+                  title: "We publish your offer",
+                  body: "Commission structure and partner criteria, ready to match.",
                 },
                 {
                   step: "3",
-                  title: "Partners get matched",
-                  body: "We distribute to matching partners. They accept or decline with one click.",
+                  title: "Partners opt in",
+                  body: "Matched partners accept or decline with one click—no spam.",
                 },
                 {
                   step: "4",
                   title: "Referrals flow",
-                  body: "Partners recommend your product. You pay commissions only on actual sales.",
+                  body: "Partners refer; you pay commissions on actual sales.",
                 },
               ].map((item) => (
                 <li key={item.step}>
-                  <span className="text-sm font-bold text-emerald-500">
+                  <span className="text-sm font-bold text-rb-terracotta">
                     {item.step}
                   </span>
-                  <h4 className="mt-2 font-semibold text-white">{item.title}</h4>
-                  <p className="mt-2 text-sm text-zinc-400">{item.body}</p>
+                  <h4 className="mt-2 font-display text-lg font-semibold">
+                    {item.title}
+                  </h4>
+                  <p className="mt-2 text-sm text-white/60">{item.body}</p>
                 </li>
               ))}
             </ol>
-            <div className="mt-14 text-center">
-              <p className="text-lg text-zinc-300">
-                See how ReferralBuddy can drive sales for your brand.
+            <div className="mt-16 text-center">
+              <p className="text-lg text-white/80">
+                See whether ReferralBuddy fits your go-to-market.
               </p>
               <a
                 href={CAL_DEMO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex rounded-xl bg-emerald-500 px-6 py-3 text-base font-semibold text-zinc-950 hover:bg-emerald-400"
+                className="mt-6 inline-flex rounded-xl bg-rb-terracotta px-6 py-3.5 text-base font-semibold text-white hover:bg-rb-terracotta-dark"
               >
-                Book a 15-Minute Demo →
+                Book a 15-minute demo
               </a>
             </div>
           </div>
