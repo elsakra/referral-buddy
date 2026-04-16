@@ -1,6 +1,6 @@
 /**
  * Incoming Slack webhook for new partner signups (server-only).
- * Set SLACK_WEBHOOK_URL in Vercel / .env.local — never commit the URL.
+ * Set SLACK_WEBHOOK_URL in Vercel Production (or .env.local). Do not commit the URL.
  */
 export type SignupSlackPayload = {
   channel: "landing" | "join";
@@ -15,7 +15,7 @@ export type SignupSlackPayload = {
 };
 
 export async function notifySignupSlack(payload: SignupSlackPayload): Promise<void> {
-  const url = process.env.SLACK_WEBHOOK_URL;
+  const url = process.env.SLACK_WEBHOOK_URL?.trim();
   if (!url?.startsWith("https://hooks.slack.com/")) {
     return;
   }

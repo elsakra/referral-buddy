@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -55,9 +56,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${fraunces.variable} h-full scroll-smooth antialiased`}
+      className={`${dmSans.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-rb-cream font-sans text-rb-text">
+        <ScrollToTop />
         {children}
       </body>
     </html>
