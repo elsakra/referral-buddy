@@ -101,7 +101,7 @@ export async function POST(request: Request) {
       );
     }
 
-    void notifySignupSlack({
+    await notifySignupSlack({
       channel: "join",
       id,
       email: String(d.email),

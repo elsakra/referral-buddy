@@ -62,7 +62,9 @@ export async function POST(request: Request) {
     }
 
     if (inserted?.id) {
-      void notifySignupSlack({
+      // Must await: Vercel serverless can terminate the isolate after the response is sent,
+      // which aborts fire-and-forget fetches to Slack.
+      await notifySignupSlack({
         channel: "landing",
         id: inserted.id,
         email: row.email,

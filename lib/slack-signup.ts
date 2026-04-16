@@ -17,6 +17,9 @@ export type SignupSlackPayload = {
 export async function notifySignupSlack(payload: SignupSlackPayload): Promise<void> {
   const url = process.env.SLACK_WEBHOOK_URL?.trim();
   if (!url?.startsWith("https://hooks.slack.com/")) {
+    console.warn(
+      "[signup] Slack skipped: set SLACK_WEBHOOK_URL to a https://hooks.slack.com/ URL (Vercel → Environment Variables → Production)",
+    );
     return;
   }
 
